@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Skin xmlns:fx="http://ns.adobe.com/mxml/2009"
+		xmlns:s="library://ns.adobe.com/flex/spark"
+		xmlns:mx="library://ns.adobe.com/flex/mx">
+	<!-- host component -->
+	<fx:Metadata>
+		[HostComponent("com.ravi.component.LoginComponent")]
+	</fx:Metadata>
+
+	<!-- states -->
+	<s:states>
+		<s:State name="login"/>
+		<s:State name="logout"/>
+	</s:states>
+
+	
+	<s:Label text.login="Sign in to continue to Gmail"
+			 text="Welcome to Gmail"
+			 fontFamily="Arial"
+			 fontSize="18"
+			 color="#ffffff"/>
+	
+	<s:Group width="358"
+			 height="380"
+			 y="35">
+		<s:Rect left="0"
+				right="0"
+				top="0"
+				bottom="0"
+				radiusX="4"
+				radiusY="4">
+			<s:fill>
+				<s:SolidColor color="#f7f7f7"  />
+			</s:fill>
+		</s:Rect>
+	</s:Group>
+	
+	<!-- SkinParts
+	name=contentGroup, type=spark.components.Group, required=false
+	-->
+	
+	<s:VGroup width="358"
+			  height="380"
+			  horizontalAlign="center"
+			  paddingBottom="40"
+			  paddingLeft="40"
+			  paddingRight="40"
+			  paddingTop="40"
+			  y="35">
+		<s:Image source.logout="images/photo.png"
+				 source.login="images/avatar_2x.png"
+				 width="100"
+				 height="100"
+				 id="img"
+				 skinClass="com.ravi.skins.RoundedImageSkin"/>
+		<s:Spacer height="40"
+				  includeIn="logout"/>
+		<s:Label text.logout="{username.text + ' is logged in'}"
+				 fontSize="13"
+				 fontFamily="Arial"
+				 height="40"/>
+		<s:TextInput id="username"
+					 width="100%"
+					 height="42"
+					 prompt="Email"
+					 fontSize="13"
+					 fontFamily="Arial"
+					 includeIn="login"/>
+		<s:TextInput id="password"
+					 includeIn="login"
+					 width="100%"
+					 height="42"
+					 displayAsPassword="true"
+					 fontFamily="Arial"
+					 fontSize="13"
+					 prompt="Password"/>
+		<s:Button id="loginBtn"
+				  label.login="Sing In"
+				  label.logout="Log Out"
+				  width="100%"
+				  height="40"
+				  skinClass="com.ravi.skins.SignInButtonnSkin"/>
+		<s:HGroup width="100%"
+				  height="40"
+				  verticalAlign="middle"
+				  includeIn="login">
+			<s:CheckBox selected="true"/>
+			<s:Label text="Stay signed in"
+					 color="#555555"/>
+			<s:Spacer width="100%"/>
+			<s:Label text="Need Help?"
+					 color="#427fed"
+					 mouseChildren="false"
+					 buttonMode="true"/>
+		</s:HGroup>
+	</s:VGroup>
+
+</s:Skin>

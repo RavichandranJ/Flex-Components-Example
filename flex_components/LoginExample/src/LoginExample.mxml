@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:WindowedApplication xmlns:fx="http://ns.adobe.com/mxml/2009"
+					   xmlns:s="library://ns.adobe.com/flex/spark"
+					   xmlns:mx="library://ns.adobe.com/flex/mx"
+					   xmlns:views="com.ravi.views.*"
+					   width="100%"
+					   height="100%"
+					   xmlns:component="com.ravi.component.*"
+					   skinClass="com.ravi.skins.AppMainSkin">
+	<s:layout>
+		<s:HorizontalLayout horizontalAlign="center"
+							verticalAlign="middle"/>
+	</s:layout>
+	<fx:Script>
+		<![CDATA[
+			import com.ravi.events.LoginEvent;
+			import com.ravi.model.LoginModelLocator;
+			
+			[Bindable]
+			private var model:LoginModelLocator = LoginModelLocator.getInstance();
+			
+			private function loginHandler(event:LoginEvent):void
+			{
+				// TODO Auto-generated method stub
+				trace("Logged In.");
+				model.currentState = "login";
+			}
+			
+			private function logoutHandler(event:LoginEvent):void
+			{
+				// TODO Auto-generated method stub
+				trace("Logged Out");
+				model.currentState = "logout";
+			}
+			
+			private function errorHandler(event:LoginEvent):void
+			{
+				// TODO Auto-generated method stub
+				trace("Error Occured");
+			}
+			
+		]]>
+	</fx:Script>
+
+	<component:LoginComponent login="loginHandler(event)" logout="logoutHandler(event)" error="errorHandler(event)"/>
+	
+	<!--<views:LoginView />-->
+</s:WindowedApplication>
